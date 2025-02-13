@@ -22,12 +22,11 @@ architecture reg of reg1bit is
         q, nq  : out std_logic
         );
     end component;
-    signal sclk, sclr, spr : std_logic;
-    signal sdataout , sndataout, sdatain: std_logic;
+    signal sdataout , sdatain: std_logic;
 begin
-    sdatain <= datain when carga = '1' else
-               sdataout when carga = '0';
-    u_fftd : fftd port map(sdatain, sclk, sclr, spr, sdataout, sndataout);
-    dataout <= sdataout;
+    dataout <= '1' when pr = '0' else '0' when clr = '0' else sdataout;
+    sdatain <= sdataout when carga = '0' else datain;
+    u_reg : fftd port map(sdatain, clk, pr, clr, sdataout);
+    
 
 end architecture reg;

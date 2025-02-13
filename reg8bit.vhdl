@@ -24,15 +24,16 @@ architecture reg of reg8bit is
         dataout : out std_logic
     );
     end component;
-    signal sclk, sclr, spr, scarga: std_logic;
+
 
 begin
-    u_reg0 : reg1bit port map(datain(0), sclk, spr, sclr, scarga, dataout(0));
-    u_reg1 : reg1bit port map(datain(1), sclk, spr, sclr, scarga, dataout(1));
-    u_reg2 : reg1bit port map(datain(2), sclk, spr, sclr, scarga, dataout(2));
-    u_reg3 : reg1bit port map(datain(3), sclk, spr, sclr, scarga, dataout(3));
-    u_reg4 : reg1bit port map(datain(4), sclk, spr, sclr, scarga, dataout(4));
-    u_reg5 : reg1bit port map(datain(5), sclk, spr, sclr, scarga, dataout(5));
-    u_reg6 : reg1bit port map(datain(6), sclk, spr, sclr, scarga, dataout(6));
-    u_reg7 : reg1bit port map(datain(7), sclk, spr, sclr, scarga, dataout(7));
-end architecture;
+    u_reg0 : reg1bit port map(datain(0), clk, pr, clr, carga, dataout(0));
+    u_reg1 : reg1bit port map(datain(1), clk, pr, clr, carga, dataout(1));
+    u_reg2 : reg1bit port map(datain(2), clk, pr, clr, carga, dataout(2));
+    u_reg3 : reg1bit port map(datain(3), clk, pr, clr, carga, dataout(3));
+    u_reg4 : reg1bit port map(datain(4), clk, pr, clr, carga, dataout(4));
+    u_reg5 : reg1bit port map(datain(5), clk, pr, clr, carga, dataout(5));
+    u_reg6 : reg1bit port map(datain(6), clk, pr, clr, carga, dataout(6));
+    u_reg7 : reg1bit port map(datain(7), clk, pr, clr, carga, dataout(7));
+    
+end architecture reg;

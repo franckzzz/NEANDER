@@ -32,16 +32,23 @@ begin
     tbp : process
 
     begin
+        scl <= '1';
+        spr <= '1';
+        sd  <= '0';
+        wait for CLK_PERIOD;
+        
+        scl <= '0';
+        wait for CLK_PERIOD;
+
+        scl <= '1';
+        wait for CLK_PERIOD;
+        
+        spr <= '0';
+        wait for CLK_PERIOD;
 
         spr <= '1';
-        scl <= '0';
-        sd  <= '0';
         wait for CLK_PERIOD;
-        
-        scl <= '1';
-        sd  <= '0';
-        wait for CLK_PERIOD;
-        
+
         sd  <= '1';
         wait for CLK_PERIOD;
         
