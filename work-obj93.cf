@@ -1,34 +1,34 @@
 v 4
-file . "reg1bit_tb.vhdl" "d7aabf80c85d56a4e8b68cf610ff5acc337a668b" "20250213173723.277":
-  entity reg1bit_tb at 1( 0) + 0 on 371;
-  architecture tb of reg1bit_tb at 9( 109) + 0 on 372;
-file . "FFTD.vhdl" "e425646702075423c6960cdfd70080799c9e52c7" "20250213173723.275":
-  entity fftd at 1( 0) + 0 on 369;
-  architecture flipflop of fftd at 13( 230) + 0 on 370;
-file . "reg1bit.vhdl" "40e822f1c247741b698aeb9d8968bb7db22efab9" "20250213173723.277":
-  entity reg1bit at 1( 0) + 0 on 373;
-  architecture reg of reg1bit at 16( 318) + 0 on 374;
-file . "reg2bit.vhdl" "72749ec1c4fdd5ecbd236e9e7a86467ea1d20fba" "20250213173723.278":
-  entity reg2bit at 1( 0) + 0 on 375;
-  architecture reg of reg2bit at 16( 334) + 0 on 376;
-file . "reg8bit_tb.vhdl" "46ce50fcbbaab5ec4356964f35b8b6d7d1c70575" "20250213173723.278":
-  entity reg8bit_tb at 1( 0) + 0 on 377;
-  architecture tb of reg8bit_tb at 9( 109) + 0 on 378;
-file . "reg8bit.vhdl" "8c2a1fa6236641d5024269bab4288ec0728fa273" "20250213173723.278":
-  entity reg8bit at 1( 0) + 0 on 379;
-  architecture reg of reg8bit at 16( 334) + 0 on 380;
-file . "somador1bit.vhdl" "2b6d6acb1947da81840456df19d03ccea5501d52" "20250213173723.278":
-  entity somador1bit at 1( 0) + 0 on 381;
-  architecture comuta of somador1bit at 12( 205) + 0 on 382;
-file . "somador8bit.vhdl" "3f874987feef35f37faba23d24641138ae9e5ac6" "20250213173723.278":
-  entity somador8bit at 1( 0) + 0 on 383;
-  architecture comuta of somador8bit at 15( 334) + 0 on 384;
-file . "ulaNeanderInterno.vhdl" "491656979dc62032642a706338d109594708d9fe" "20250213173723.279":
-  entity moduloulainterno at 2( 82) + 0 on 387;
-  architecture domathstuff of moduloulainterno at 14( 412) + 0 on 388;
-file . "ulaNeander.vhdl" "92b9caed4e348d7e4d45a3af864408525466ce01" "20250213173723.279":
-  entity moduloula at 2( 82) + 0 on 389;
-  architecture domathstuff of moduloula at 16( 478) + 0 on 390;
-file . "tb_FFTD.vhdl" "cd29709c79b2f215e073a48a91531f2e5dc9668a" "20250213173723.279":
-  entity tb_fftd at 1( 0) + 0 on 385;
-  architecture tb_flipflop of tb_fftd at 8( 84) + 0 on 386;
+file . "tb_FFTD.vhdl" "cd29709c79b2f215e073a48a91531f2e5dc9668a" "20250213214752.389":
+  entity tb_fftd at 1( 0) + 0 on 407;
+  architecture tb_flipflop of tb_fftd at 8( 84) + 0 on 408;
+file . "ulaNeander.vhdl" "92b9caed4e348d7e4d45a3af864408525466ce01" "20250213214752.390":
+  entity moduloula at 2( 82) + 0 on 411;
+  architecture domathstuff of moduloula at 16( 478) + 0 on 412;
+file . "ulaNeanderInterno.vhdl" "491656979dc62032642a706338d109594708d9fe" "20250213214752.389":
+  entity moduloulainterno at 2( 82) + 0 on 409;
+  architecture domathstuff of moduloulainterno at 14( 412) + 0 on 410;
+file . "somador8bit.vhdl" "3f874987feef35f37faba23d24641138ae9e5ac6" "20250213214752.389":
+  entity somador8bit at 1( 0) + 0 on 405;
+  architecture comuta of somador8bit at 15( 334) + 0 on 406;
+file . "somador1bit.vhdl" "2b6d6acb1947da81840456df19d03ccea5501d52" "20250213214752.389":
+  entity somador1bit at 1( 0) + 0 on 403;
+  architecture comuta of somador1bit at 12( 205) + 0 on 404;
+file . "reg8bit.vhdl" "f591452a720a38df16bc5d83a8ae07c68e7c8fa6" "20250213214752.388":
+  entity reg8bit at 1( 0) + 0 on 401;
+  architecture reg of reg8bit at 16( 334) + 0 on 402;
+file . "reg8bit_tb.vhdl" "46ce50fcbbaab5ec4356964f35b8b6d7d1c70575" "20250213214752.388":
+  entity reg8bit_tb at 1( 0) + 0 on 399;
+  architecture tb of reg8bit_tb at 9( 109) + 0 on 400;
+file . "reg2bit.vhdl" "72749ec1c4fdd5ecbd236e9e7a86467ea1d20fba" "20250213214752.387":
+  entity reg2bit at 1( 0) + 0 on 397;
+  architecture reg of reg2bit at 16( 334) + 0 on 398;
+file . "reg1bit.vhdl" "40e822f1c247741b698aeb9d8968bb7db22efab9" "20250213214752.387":
+  entity reg1bit at 1( 0) + 0 on 395;
+  architecture reg of reg1bit at 16( 318) + 0 on 396;
+file . "FFTD.vhdl" "e425646702075423c6960cdfd70080799c9e52c7" "20250213214752.385":
+  entity fftd at 1( 0) + 0 on 391;
+  architecture flipflop of fftd at 13( 230) + 0 on 392;
+file . "reg1bit_tb.vhdl" "d7aabf80c85d56a4e8b68cf610ff5acc337a668b" "20250213214752.386":
+  entity reg1bit_tb at 1( 0) + 0 on 393;
+  architecture tb of reg1bit_tb at 9( 109) + 0 on 394;
