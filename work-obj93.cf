@@ -1,0 +1,31 @@
+v 4
+file . "tb_FFTD.vhdl" "183c5eb3dd09e98e9f41a131d03870e5e66138ab" "20250212204000.170":
+  entity tb_fftd at 1( 0) + 0 on 143;
+  architecture tb_flipflop of tb_fftd at 8( 84) + 0 on 144;
+file . "ulaNeander.vhdl" "92b9caed4e348d7e4d45a3af864408525466ce01" "20250212204000.171":
+  entity moduloula at 2( 82) + 0 on 147;
+  architecture domathstuff of moduloula at 16( 478) + 0 on 148;
+file . "ulaNeanderInterno.vhdl" "491656979dc62032642a706338d109594708d9fe" "20250212204000.170":
+  entity moduloulainterno at 2( 82) + 0 on 145;
+  architecture domathstuff of moduloulainterno at 14( 412) + 0 on 146;
+file . "somador8bit.vhdl" "3f874987feef35f37faba23d24641138ae9e5ac6" "20250212204000.170":
+  entity somador8bit at 1( 0) + 0 on 141;
+  architecture comuta of somador8bit at 15( 334) + 0 on 142;
+file . "somador1bit.vhdl" "2b6d6acb1947da81840456df19d03ccea5501d52" "20250212204000.170":
+  entity somador1bit at 1( 0) + 0 on 139;
+  architecture comuta of somador1bit at 12( 205) + 0 on 140;
+file . "reg8bit.vhdl" "4576613c7afde0a979fcccab00d189f0185fcdad" "20250212204000.170":
+  entity reg8bit at 1( 0) + 0 on 137;
+  architecture reg of reg8bit at 16( 334) + 0 on 138;
+file . "reg8bit_tb.vhdl" "cced3002ec26d54c23d41608fb7150b5c31370c6" "20250212204000.170":
+  entity reg8bit_tb at 1( 0) + 0 on 135;
+  architecture tb of reg8bit_tb at 9( 109) + 0 on 136;
+file . "reg2bit.vhdl" "72749ec1c4fdd5ecbd236e9e7a86467ea1d20fba" "20250212204000.170":
+  entity reg2bit at 1( 0) + 0 on 133;
+  architecture reg of reg2bit at 16( 334) + 0 on 134;
+file . "reg1bit.vhdl" "a4891dc512ee53ce51f87435bc05f4e3f46e3075" "20250212204000.169":
+  entity reg1bit at 1( 0) + 0 on 131;
+  architecture reg of reg1bit at 16( 318) + 0 on 132;
+file . "FFTD.vhdl" "e425646702075423c6960cdfd70080799c9e52c7" "20250212204000.167":
+  entity fftd at 1( 0) + 0 on 129;
+  architecture flipflop of fftd at 13( 230) + 0 on 130;
