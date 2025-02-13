@@ -35,5 +35,4 @@ begin
     u_reg5 : reg1bit port map(datain(5), clk, pr, clr, carga, dataout(5));
     u_reg6 : reg1bit port map(datain(6), clk, pr, clr, carga, dataout(6));
     u_reg7 : reg1bit port map(datain(7), clk, pr, clr, carga, dataout(7));
-    
 end architecture reg;
