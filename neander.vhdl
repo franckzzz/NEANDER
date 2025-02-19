@@ -8,7 +8,7 @@ entity Neander is
     );
 end entity Neander;
 
-architecture docomputing of Neander is
+architecture docomputingstuff of Neander is
     component moduloMEM is
         port(
             rst, clk   : in    std_logic;
@@ -32,6 +32,11 @@ architecture docomputing of Neander is
             );
         end component;
 begin
-
-
+    signal barramento : std_logic_vector(7 downto 0);
+    signal s_endPC, s_endBarr : std_logic;
+    signal flagsNZ : std_logic_vector(1 downto 0);
+    u_ula : moduloULA port map(rst, clk, AC_nrw, ula_op, MEM_nrw, flagzNZ, barramento);
+    u_mem : moduloMEM port map(rst, clk, nbarrPC, REM_nrw, MEM_nrw, RDM_nrw, s_endPC, s_endBarr, barramento);
+    s_endBarr <= barramento;
+'   
 end architecture;
