@@ -50,8 +50,8 @@ architecture domathstuff of moduloULA is
 
 begin
 
-    u_registradorAC: reg8bit port map(s_ula2ac, clk, rst, '1', AC_nrw, s_ac2ula);
-    u_registradorFlags: reg2bit port map(s_ula2flags, clk, rst, '1', AC_nrw, s_interface_flags);
+    u_registradorAC: reg8bit port map(s_ula2ac, clk, '1', rst, AC_nrw, s_ac2ula);
+    u_registradorFlags: reg2bit port map(s_ula2flags, clk, '1', rst, AC_nrw, s_interface_flags);
     u_ulaInterno: moduloULAinterno port map(s_ac2ula, barramento, ula_op, s_ula2flags, s_ula2ac);
     barramento <= s_ac2ula when MEM_nrw='1' else (others => 'Z');
     
