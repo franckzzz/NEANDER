@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity Neander is
     port (
         clk : in std_logic;
-        rst : in std_logic;
+        rst : in std_logic
     );
 end entity Neander;
 
@@ -31,10 +31,10 @@ architecture docomputingstuff of Neander is
             barramento  : inout std_logic_vector(7 downto 0)
             );
         end component;
+        signal barramento : std_logic_vector(7 downto 0);
+        signal s_endPC, s_endBarr : std_logic;
+        signal flagsNZ : std_logic_vector(1 downto 0);
 begin
-    signal barramento : std_logic_vector(7 downto 0);
-    signal s_endPC, s_endBarr : std_logic;
-    signal flagsNZ : std_logic_vector(1 downto 0);
     u_ula : moduloULA port map(rst, clk, AC_nrw, ula_op, MEM_nrw, flagzNZ, barramento);
     u_mem : moduloMEM port map(rst, clk, nbarrPC, REM_nrw, MEM_nrw, RDM_nrw, s_endPC, s_endBarr, barramento);
     s_endBarr <= barramento;
