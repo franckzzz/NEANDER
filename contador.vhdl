@@ -20,7 +20,7 @@ end component;
 component ffjk is
     port(
         j, k   : in std_logic;
-        clock  : in std_logic;
+        clk  : in std_logic;
         pr, cl : in std_logic;
         q, nq  : out std_logic
         );
@@ -28,14 +28,16 @@ end component;
 
 signal sj, sk : std_logic_vector (2 downto 0);
 signal sq     : std_logic_vector (2 downto 0);
+signal s_clock : std_logic;
 
 begin
+    s_clock <= clock;
 
     u_controle : controle port map (sq, sj, sk);
 
-    u_ffjk2 : ffjk port map (sj(2), sk(2), clock, pr, reset, sq(2));
-    u_ffjk1 : ffjk port map (sj(1), sk(1), clock, pr, reset, sq(1));
-    u_ffjk0 : ffjk port map (sj(0), sk(0), clock, pr, reset, sq(0));
+    u_ffjk2 : ffjk port map (sj(2), sk(2), s_clock, pr, reset, sq(2));
+    u_ffjk1 : ffjk port map (sj(1), sk(1), s_clock, pr, reset, sq(1));
+    u_ffjk0 : ffjk port map (sj(0), sk(0), s_clock, pr, reset, sq(0));
 
     c <= sq;
 

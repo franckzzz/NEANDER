@@ -168,7 +168,8 @@ begin
                 "00000001000" when s_ri2dec = "10000000" else 
                 "00000000100" when s_ri2dec = "10010000" else
                 "00000000010" when s_ri2dec = "10100000" else
-                "00000000001" when s_ri2dec = "11110000";
+                "00000000001" when s_ri2dec = "11110000" else
+                (others => 'Z');
 
    
     -- contador
@@ -198,6 +199,7 @@ begin
                sJMP when s_dec2uc = "00000001000" else
                sJN  when s_dec2uc = "00000000100" else
                sJZ  when s_dec2uc = "00000000010" else
-               sHLT when s_dec2uc = "00000000001";
+               sHLT when s_dec2uc = "00000000001" else
+               (others => 'Z');
 
 end architecture docontrolstuff;
