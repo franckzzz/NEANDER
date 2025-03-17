@@ -49,7 +49,6 @@ begin
     -- registrador PC
     u_regPC : reg8bit port map (s_mux2pc, clk, '1', rst, PC_nrw, sendereco);
 
-
     -- incrementador
     x <= sendereco;
     y <= "00000001";
@@ -59,5 +58,7 @@ begin
 
     -- mux2x8
     s_mux2pc <= sadd when nbarrINC = '1' else barramento;
+
+    endereco <= sendereco;
 
 end architecture dopointstuff;

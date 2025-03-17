@@ -21,6 +21,7 @@ architecture docomputingstuff of Neander is
             barramento : inout std_logic_vector(7 downto 0)
 	);
     end component;
+
     component moduloULA is
         port(
             rst, clk    : in    std_logic;
@@ -29,14 +30,51 @@ architecture docomputingstuff of Neander is
             MEM_nrw     : in    std_logic;
             flags_nz    : out   std_logic_vector(1 downto 0);
             barramento  : inout std_logic_vector(7 downto 0)
-            );
-        end component;
-        signal barramento : std_logic_vector(7 downto 0);
-        signal s_endPC, s_endBarr : std_logic;
-        signal flagsNZ : std_logic_vector(1 downto 0);
+        );
+    end component;
+
+    component moduloPC is
+        port(
+            rst, clk   : in  std_logic;
+            PC_nrw     : in  std_logic;
+            nbarrINC   : in    std_logic;
+            barramento : in  std_logic_vector(7 downto 0);
+	        endereco   : out std_logic_vector(7 downto 0)
+	    );
+    end component;
+
+    component moduloUC is
+        port(
+            rst, clk   : in  std_logic;
+            barramento : in  std_logic_vector(7 downto 0);
+            RI_nrw     : in  std_logic;
+            flags_nz   : in  std_logic_vector(1 downto 0);
+	        bctrl      : out std_logic_vector(10 downto 0)
+	    );
+    end component;
+
+    signal barramento : std_logic_vector(7 downto 0);
+    signal s_endPC, s_endBarr : std_logic;
+    signal flagsNZ : std_logic_vector(1 downto 0);
+    signal s_bctrl : std_logic_vector(10 downto 0);
+    signal nbarrINC, nbarrPC, PC_nrw, AC_nrw, MEM_nrw, REM_nrw, RDM_nrw, RI_nrw : std_logic;
+    signal ulaOP : std_logic_vector(2 downto 0);
+
 begin
+    nbarrINC <= s_bctrl(0);
+    nbarrpc  <= s_bctrl(1);
+    ula_op   <= s_bctrl(4 downto 2);
+    PC_nrw   <= s_bctrl(5);
+    AC_nrw   <= s_bctrl(6);
+    MEM_nrw  <= s_bctrl(7);
+    REM_nrw  <= s_bctrl(8);
+    RDM_nrw  <= s_bctrl(9);
+    RI_nrw   <= s_bctrl(10);
+
     u_ula : moduloULA port map(rst, clk, AC_nrw, ula_op, MEM_nrw, flagzNZ, barramento);
     u_mem : moduloMEM port map(rst, clk, nbarrPC, REM_nrw, MEM_nrw, RDM_nrw, s_endPC, s_endBarr, barramento);
+    u_pc  : moduloPC  port map(rst, clk, PC_nrw, nbarrINC, barramento, s_endPC);
+    u_uc  : moduloUC  port map(rst, clk, barramento, RI_nrw, flagsNZ, s_bctrl);
     s_endBarr <= barramento;
-'   
+  
 end architecture;
