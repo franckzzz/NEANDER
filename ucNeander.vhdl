@@ -68,7 +68,7 @@ architecture docontrolstuff of moduloUC is
         );
     end component;
 
-    component NOT is
+    component NNOT is
         port(
             c : in std_logic_vector(2 downto 0);
             s : out std_logic_vector(10 downto 0)
@@ -82,14 +82,14 @@ architecture docontrolstuff of moduloUC is
         );
     end component;
 
-    component AND is
+    component AAND is
         port(
             c : in std_logic_vector(2 downto 0);
             s : out std_logic_vector(10 downto 0)
         );
     end component;
 
-    component OR is
+    component OOR is
         port(
             c : in std_logic_vector(2 downto 0);
             s : out std_logic_vector(10 downto 0)
@@ -114,7 +114,7 @@ architecture docontrolstuff of moduloUC is
         port(
             c : in std_logic_vector(2 downto 0);
             s : out std_logic_vector(10 downto 0);
-            flagsNZ : in std_logic_vector(2 downto 0)
+            flagsNZ : in std_logic_vector(1 downto 0)
         );
     end component;
 
@@ -122,7 +122,7 @@ architecture docontrolstuff of moduloUC is
         port(
             c : in std_logic_vector(2 downto 0);
             s : out std_logic_vector(10 downto 0);
-            flagsNZ : in std_logic_vector(2 downto 0)
+            flagsNZ : in std_logic_vector(1 downto 0)
         );
     end component;
 
@@ -149,9 +149,7 @@ architecture docontrolstuff of moduloUC is
     signal sHLT : std_logic_vector(10 downto 0);
 
     -- observacao
-    signal sInstrucaoAtiva : string(1 to 3);
-    signal sOperacaoULA    : string(1 to 3);
-    signal sFlags          : string(1 to 2);
+    signal sFlags : std_logic_vector(1 downto 0);
 
 begin
 
@@ -180,26 +178,26 @@ begin
     u_lda : LDA port map(s_ciclo, sLDA);
     u_sta : STA port map(s_ciclo, sSTA);
     u_nop : NOP port map(s_ciclo, sNOP);
-    u_not : NOT port map(s_ciclo, sNOT);
+    u_not : NNOT port map(s_ciclo, sNOT);
     u_add : ADD port map(s_ciclo, sADD);
-    u_or  : OR  port map(s_ciclo, sOR );
-    u_and : AND port map(s_ciclo, sAND);
+    u_or  : OOR  port map(s_ciclo, sOR );
+    u_and : AAND port map(s_ciclo, sAND);
     u_jmp : JMP port map(s_ciclo, sJMP);
     u_jz  : JZ  port map(s_ciclo, sNOP, sFlags);
     u_jn  : JN  port map(s_ciclo, sNOP, sFlags);
     u_hlt : HLT port map(s_ciclo, sNOP);
 
 
-    s_bctrl <= sLDA when sdec2uc = "00100000000" else
-               sNOP when sdec2uc = "10000000000" else
-               sSTA when sdec2uc = "01000000000" else
-               sADD when sdec2uc = "00010000000" else
-               sAND when sdec2uc = "00000100000" else
-               sOR  when sdec2uc = "00001000000" else
-               sNOT when sdec2uc = "00000010000" else
-               sJMP when sdec2uc = "00000001000" else
-               sJN  when sdec2uc = "00000000100" else
-               sJZ  when sdec2uc = "00000000010" else
-               sHLT when sdec2uc = "00000000001";
+    s_bctrl <= sLDA when s_dec2uc = "00100000000" else
+               sNOP when s_dec2uc = "10000000000" else
+               sSTA when s_dec2uc = "01000000000" else
+               sADD when s_dec2uc = "00010000000" else
+               sAND when s_dec2uc = "00000100000" else
+               sOR  when s_dec2uc = "00001000000" else
+               sNOT when s_dec2uc = "00000010000" else
+               sJMP when s_dec2uc = "00000001000" else
+               sJN  when s_dec2uc = "00000000100" else
+               sJZ  when s_dec2uc = "00000000010" else
+               sHLT when s_dec2uc = "00000000001";
 
 end architecture docontrolstuff;

@@ -54,11 +54,11 @@ architecture docomputingstuff of Neander is
     end component;
 
     signal barramento : std_logic_vector(7 downto 0);
-    signal s_endPC, s_endBarr : std_logic;
+    signal s_endPC, s_endBarr : std_logic_vector(7 downto 0);
     signal flagsNZ : std_logic_vector(1 downto 0);
     signal s_bctrl : std_logic_vector(10 downto 0);
     signal nbarrINC, nbarrPC, PC_nrw, AC_nrw, MEM_nrw, REM_nrw, RDM_nrw, RI_nrw : std_logic;
-    signal ulaOP : std_logic_vector(2 downto 0);
+    signal ula_op : std_logic_vector(2 downto 0);
 
 begin
     nbarrINC <= s_bctrl(0);
@@ -71,7 +71,7 @@ begin
     RDM_nrw  <= s_bctrl(9);
     RI_nrw   <= s_bctrl(10);
 
-    u_ula : moduloULA port map(rst, clk, AC_nrw, ula_op, MEM_nrw, flagzNZ, barramento);
+    u_ula : moduloULA port map(rst, clk, AC_nrw, ula_op, MEM_nrw, flagsNZ, barramento);
     u_mem : moduloMEM port map(rst, clk, nbarrPC, REM_nrw, MEM_nrw, RDM_nrw, s_endPC, s_endBarr, barramento);
     u_pc  : moduloPC  port map(rst, clk, PC_nrw, nbarrINC, barramento, s_endPC);
     u_uc  : moduloUC  port map(rst, clk, barramento, RI_nrw, flagsNZ, s_bctrl);

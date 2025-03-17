@@ -81,14 +81,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity NOT is
+entity NNOT is
     port(
         c : in std_logic_vector(2 downto 0);
         s : out std_logic_vector(10 downto 0)
     );
 end entity;
 
-architecture doNOT of NOT  is
+architecture doNOT of NNOT  is
 
 begin
     s(0) <= '1';
@@ -96,7 +96,7 @@ begin
     s(4 downto 2) <= "100";
     s(5) <= not c(2) and not c(1) and c(0);
     s(6) <= c(2) and c(1) and c(0);
-    s(7) <= '0'
+    s(7) <= '0';
     s(8) <= not c(2) and not c(1) and not c(0);
     s(9) <= not c(2) and not c(1) and c(0);
     s(10) <= not c(2) and c(1) and not c(0);  
@@ -132,14 +132,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity OR is
+entity OOR is
     port(
         c : in std_logic_vector(2 downto 0);
         s : out std_logic_vector(10 downto 0)
     );
 end entity;
 
-architecture doOR of OR is
+architecture doOR of OOR is
 
 begin
     s(0) <= '1';
@@ -157,14 +157,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity AND is
+entity AAND is
     port(
         c : in std_logic_vector(2 downto 0);
         s : out std_logic_vector(10 downto 0)
     );
 end entity;
 
-architecture doAND of AND is
+architecture doAND of AAND is
 
 begin
     s(0) <= '1';
@@ -201,7 +201,7 @@ begin
     s(8) <= not c(2) and (c(1) xnor c(0));
     s(9) <= not c(1) and (c(2) xor c(0));
     s(10) <= not c(2) and c(1) and not c(0);
-end architecture
+end architecture;
 -----------------------JN----------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -211,7 +211,7 @@ entity JN is
     port(
         c : in std_logic_vector(2 downto 0);
         s : out std_logic_vector(10 downto 0);
-        flagsNZ : in std_logic_vector(2 downto 0)
+        flagsNZ : in std_logic_vector(1 downto 0)
     );
 end entity;
 
@@ -236,18 +236,18 @@ begin
     s(10) <= not c(2) and c(1) and not c(0);
 
     u_JMP : JMP port map(c, sJMP);
-    s <= u_JMP when flagsNZ(1) = '1';
-end architecture
+    s <= sJMP when flagsNZ(1) = '1';
+end architecture;
 --------------------------------JZ-------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity JN is
+entity JZ is
     port(
         c : in std_logic_vector(2 downto 0);
         s : out std_logic_vector(10 downto 0);
-        flagsNZ : in std_logic_vector(2 downto 0)
+        flagsNZ : in std_logic_vector(1 downto 0)
     );
 end entity;
 
@@ -272,8 +272,8 @@ begin
     s(10) <= not c(2) and c(1) and not c(0);
 
     u_JMP : JMP port map(c, sJMP);
-    s <= u_JMP when flagsNZ(0) = '1';
-end architecture
+    s <= sJMP when flagsNZ(0) = '1';
+end architecture;
 ----------------------HLT--------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -282,8 +282,7 @@ use ieee.numeric_std.all;
 entity HLT is
     port(
         c : in std_logic_vector(2 downto 0);
-        s : out std_logic_vector(10 downto 0);
-        flagsNZ : in std_logic_vector(2 downto 0)
+        s : out std_logic_vector(10 downto 0)
     );
 end entity;
 
@@ -300,4 +299,4 @@ begin
     s(9) <= '0';
     s(10) <= '0';
 
-end architecture
+end architecture;
