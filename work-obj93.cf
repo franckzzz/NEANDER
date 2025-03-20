@@ -1,0 +1,75 @@
+v 4
+file . "as_ram.vhdl" "3f73ba77f28abe495e9836860db5e4964f04d021" "20250320215024.605":
+  entity as_ram at 2( 42) + 0 on 1861;
+  architecture behavior of as_ram at 16( 325) + 0 on 1862;
+file . "contador.vhdl" "64f3ddbaba7bea982ceb19fe2bb03f6e463f10f2" "20250320215024.606":
+  entity contador at 1( 0) + 0 on 1863;
+  architecture contador of contador at 11( 192) + 0 on 1864;
+file . "controle.vhdl" "d98c7b30c557e79e08e6388af16942f553aa8583" "20250320215024.606":
+  entity controle at 1( 0) + 0 on 1865;
+  architecture controlar of controle at 12( 233) + 0 on 1866;
+file . "FFJK.vhdl" "372626b8f8628e41ca79d94e7fa07011cd402519" "20250320215024.606":
+  entity ffjk at 1( 0) + 0 on 1867;
+  architecture flipflop of ffjk at 13( 230) + 0 on 1868;
+file . "FFTD.vhdl" "6adeb3aade54bcf5f35b5f0558ff38189795ac6e" "20250320215024.606":
+  entity fftd at 1( 0) + 0 on 1869;
+  architecture flipflop of fftd at 13( 230) + 0 on 1870;
+file . "instrucoes.vhdl" "fa4dd622028b1408a42ad075e7042356b6c3d105" "20250320215024.608":
+  entity nop at 2( 59) + 0 on 1871;
+  architecture donop of nop at 13( 264) + 0 on 1872;
+  entity sta at 30( 794) + 0 on 1873;
+  architecture dosta of sta at 41( 999) + 0 on 1874;
+  entity lda at 56( 1541) + 0 on 1875;
+  architecture dolda of lda at 67( 1746) + 0 on 1876;
+  entity nnot at 82( 2243) + 0 on 1877;
+  architecture donot of nnot at 93( 2449) + 0 on 1878;
+  entity add at 108( 2970) + 0 on 1879;
+  architecture doadd of add at 119( 3175) + 0 on 1880;
+  entity oor at 133( 3677) + 0 on 1881;
+  architecture door of oor at 144( 3882) + 0 on 1882;
+  entity aand at 158( 4370) + 0 on 1883;
+  architecture doand of aand at 169( 4576) + 0 on 1884;
+  entity jmp at 183( 5052) + 0 on 1885;
+  architecture dojmp of jmp at 194( 5257) + 0 on 1886;
+  entity jn at 208( 5657) + 0 on 1887;
+  architecture dojn of jn at 220( 5912) + 0 on 1888;
+  entity jz at 245( 6654) + 0 on 1889;
+  architecture dojz of jz at 257( 6909) + 0 on 1890;
+  entity hlt at 282( 7641) + 0 on 1891;
+  architecture dohlt of hlt at 293( 7846) + 0 on 1892;
+file . "memoriaNeander.vhdl" "24f554e6e940dc47f0d0db5948b62f4049fbd144" "20250320215024.609":
+  entity modulomem at 1( 0) + 0 on 1893;
+  architecture dostoragestuff of modulomem at 17( 459) + 0 on 1894;
+file . "NEANDER_tb.vhdl" "f37ef80fa2cc36ae448053d6d88719d64a13b223" "20250320215024.609":
+  entity tb_neander at 3( 160) + 0 on 1895;
+  architecture letsdothis of tb_neander at 9( 249) + 0 on 1896;
+file . "neander.vhdl" "5ef20033cd49ecd01f0f071dd7b6d219b3d8ac75" "20250320215024.609":
+  entity neander at 1( 0) + 0 on 1897;
+  architecture docomputingstuff of neander at 11( 156) + 0 on 1898;
+file . "reg2bit.vhdl" "72749ec1c4fdd5ecbd236e9e7a86467ea1d20fba" "20250320215024.609":
+  entity reg2bit at 1( 0) + 0 on 1901;
+  architecture reg of reg2bit at 16( 334) + 0 on 1902;
+file . "reg8bit.vhdl" "910afafde1fd57a47827a03917c9defc5f3a6f87" "20250320215024.609":
+  entity reg8bit at 1( 0) + 0 on 1903;
+  architecture reg of reg8bit at 16( 334) + 0 on 1904;
+file . "somador1bit.vhdl" "2b6d6acb1947da81840456df19d03ccea5501d52" "20250320215024.609":
+  entity somador1bit at 1( 0) + 0 on 1905;
+  architecture comuta of somador1bit at 12( 205) + 0 on 1906;
+file . "somador8bit.vhdl" "3f874987feef35f37faba23d24641138ae9e5ac6" "20250320215024.610":
+  entity somador8bit at 1( 0) + 0 on 1907;
+  architecture comuta of somador8bit at 15( 334) + 0 on 1908;
+file . "ucNeanderInterno.vhdl" "4751a40b06b872c3abbdafd49b179fa4f2ba3e4d" "20250320215024.610":
+  entity modulopc at 2( 71) + 0 on 1909;
+  architecture dopointstuff of modulopc at 15( 383) + 0 on 1910;
+file . "ucNeander.vhdl" "3593e0d9a69cd761bfb5c6dc53f8267cdfbf239e" "20250320215024.610":
+  entity modulouc at 2( 80) + 0 on 1911;
+  architecture docontrolstuff of modulouc at 15( 410) + 0 on 1912;
+file . "ulaNeanderInterno.vhdl" "491656979dc62032642a706338d109594708d9fe" "20250320215024.610":
+  entity moduloulainterno at 2( 82) + 0 on 1913;
+  architecture domathstuff of moduloulainterno at 14( 412) + 0 on 1914;
+file . "ulaNeander.vhdl" "c769be58503883b6a6356c29a8d095623870b922" "20250320215024.610":
+  entity moduloula at 2( 82) + 0 on 1915;
+  architecture domathstuff of moduloula at 16( 478) + 0 on 1916;
+file . "reg1bit.vhdl" "40e822f1c247741b698aeb9d8968bb7db22efab9" "20250320215024.609":
+  entity reg1bit at 1( 0) + 0 on 1899;
+  architecture reg of reg1bit at 16( 318) + 0 on 1900;

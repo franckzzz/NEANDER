@@ -31,7 +31,7 @@ architecture docontrolstuff of moduloUC is
     -- componente Contador0-7
     component contador is
 	    port(
-            clock, pr, reset : in  std_logic;
+            clock, reset : in  std_logic;
             c                : out std_logic_vector (2 downto 0)
         );
     end component;
@@ -173,21 +173,20 @@ begin
 
    
     -- contador
-    u_contador : contador port map(clk, '1', rst, s_ciclo);
+    u_contador : contador port map(clk, rst, s_ciclo);
 
     -- Unidade de Controle
-    u_lda : LDA port map(s_ciclo, sLDA);
-    u_sta : STA port map(s_ciclo, sSTA);
-    u_nop : NOP port map(s_ciclo, sNOP);
+    u_lda : LDA  port map(s_ciclo, sLDA);
+    u_sta : STA  port map(s_ciclo, sSTA);
+    u_nop : NOP  port map(s_ciclo, sNOP);
     u_not : NNOT port map(s_ciclo, sNOT);
-    u_add : ADD port map(s_ciclo, sADD);
+    u_add : ADD  port map(s_ciclo, sADD);
     u_or  : OOR  port map(s_ciclo, sOR );
     u_and : AAND port map(s_ciclo, sAND);
-    u_jmp : JMP port map(s_ciclo, sJMP);
-    u_jz  : JZ  port map(s_ciclo, sNOP, sFlags);
-    u_jn  : JN  port map(s_ciclo, sNOP, sFlags);
-    u_hlt : HLT port map(s_ciclo, sNOP);
-
+    u_jmp : JMP  port map(s_ciclo, sJMP);
+    u_jz  : JZ   port map(s_ciclo, sJZ, sFlags);
+    u_jn  : JN   port map(s_ciclo, sJN, sFlags);
+    u_hlt : HLT  port map(s_ciclo, sHLT);
 
     s_bctrl <= sLDA when s_dec2uc = "00100000000" else
                sNOP when s_dec2uc = "10000000000" else
@@ -202,4 +201,5 @@ begin
                sHLT when s_dec2uc = "00000000001" else
                (others => 'Z');
 
+    bctrl <= s_bctrl;
 end architecture docontrolstuff;

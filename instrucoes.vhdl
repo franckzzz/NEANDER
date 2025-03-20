@@ -12,17 +12,19 @@ end entity;
 
 architecture doNOP of NOP is
 
+    signal sOut: std_logic_vector(10 downto 0);
 begin
-    s(0) <= '1';
-    s(1) <= '1';
-    s(4 downto 2) <= "000";
-    s(5) <= not c(2) and not c(1) and c(0);
-    s(6) <= '0';
-    s(7) <= '0';
-    s(8) <= not c(2) and not c(1) and not c(0);
-    s(9) <= not c(2) and not c(1) and c(0);
-    s(10) <= not c(2) and c(1) and not c(0); 
+    sOut(0) <= not c(2) and (c(1) nand c(0));
+    sOut(1) <= not c(2) and (c(1) nand c(0));
+    sOut(4 downto 2) <= "000";
+    sOut(5) <= not c(2) and not c(1) and c(0);
+    sOut(6) <= '0';
+    sOut(7) <= '0';
+    sOut(8) <= not c(2) and not c(1) and not c(0);
+    sOut(9) <= not c(2) and not c(1) and c(0);
+    sOut(10) <= not c(2) and c(1) and not c(0); 
 
+    s <= sOut;
 end architecture;
 --------------------------STA-------------------------
 library ieee;
@@ -39,12 +41,12 @@ end entity;
 architecture doSTA of STA is
 
 begin
-    s(0) <= '1';
-    s(1) <= not(c(2)) or c(1) or not(c(0));
+    s(0) <= not c(2) or not c(1) or not c(0);
+    s(1) <= (not(c(2)) or c(1) or not(c(0))) and (not c(2) or not c(1) or not c(0));
     s(4 downto 2) <= "000";
     s(5) <= not c(1) and (c(2) xor c(0));
     s(6) <= '0';
-    s(7) <= not c(2) and not c(1) and c(0);
+    s(7) <= c(2) and c(1) and not c(0);
     s(8) <= (not c(1) and (c(2) xnor c(0))) or (not c(2) and c(1) and c(0));
     s(9) <= not c(1) and (c(2) xor c(0));
     s(10) <= not c(2) and c(1) and not c(0);  
@@ -91,8 +93,8 @@ end entity;
 architecture doNOT of NNOT  is
 
 begin
-    s(0) <= '1';
-    s(1) <= '1';
+    s(0) <= (not c(2) and not c(1)) or (c(1) and (c(2) xnor c(0)));
+    s(1) <= (not c(2) and not c(1)) or (c(1) and (c(2) xnor c(0)));
     s(4 downto 2) <= "100";
     s(5) <= not c(2) and not c(1) and c(0);
     s(6) <= c(2) and c(1) and c(0);
@@ -192,8 +194,8 @@ end entity;
 architecture doJMP of JMP is
 
 begin
-    s(0) <= not c(2) or c(1) or not c(0);
-    s(1) <= '1';
+    s(0) <= not c(2) or (c(1) nor c(0));
+    s(1) <= c(2) nand c(1);
     s(4 downto 2) <= "000";
     s(5) <= not c(1) and c(0);
     s(6) <= '0';
@@ -224,19 +226,20 @@ architecture doJN of JN is
     );
     end component;
     signal sJMP : std_logic_vector(10 downto 0);
+    signal sOut : std_logic_vector(10 downto 0);
 begin
-    s(0) <= '1';
-    s(1) <= '1';
-    s(4 downto 2) <= "000";
-    s(5) <= not c(2) and c(0);
-    s(6) <= '0';
-    s(7) <= '0';
-    s(8) <= not c(2) and not c(1) and not c(0);
-    s(9) <= not c(2) and not c(1) and c(0);
-    s(10) <= not c(2) and c(1) and not c(0);
+    sOut(0) <= not c(2);
+    sOut(1) <= not c(2);
+    sOut(4 downto 2) <= "000";
+    sOut(5) <= not c(2) and c(0);
+    sOut(6) <= '0';
+    sOut(7) <= '0';
+    sOut(8) <= not c(2) and not c(1) and not c(0);
+    sOut(9) <= not c(2) and not c(1) and c(0);
+    sOut(10) <= not c(2) and c(1) and not c(0);
 
     u_JMP : JMP port map(c, sJMP);
-    s <= sJMP when flagsNZ(1) = '1';
+s <= sJMP when flagsNZ(1) = '1' else sOut;
 end architecture;
 --------------------------------JZ-------------------------
 library ieee;
@@ -260,19 +263,20 @@ architecture doJZ of JZ is
     );
     end component;
     signal sJMP : std_logic_vector(10 downto 0);
+    signal sOut : std_logic_vector(10 downto 0);
 begin
-    s(0) <= '1';
-    s(1) <= '1';
-    s(4 downto 2) <= "000";
-    s(5) <= not c(2) and c(0);
-    s(6) <= '0';
-    s(7) <= '0';
-    s(8) <= not c(2) and not c(1) and not c(0);
-    s(9) <= not c(2) and not c(1) and c(0);
-    s(10) <= not c(2) and c(1) and not c(0);
+    sOut(0) <= not c(2);
+    sOut(1) <= not c(2);
+    sOut(4 downto 2) <= "000";
+    sOut(5) <= not c(2) and c(0);
+    sOut(6) <= '0';
+    sOut(7) <= '0';
+    sOut(8) <= not c(2) and not c(1) and not c(0);
+    sOut(9) <= not c(2) and not c(1) and c(0);
+    sOut(10) <= not c(2) and c(1) and not c(0);
 
     u_JMP : JMP port map(c, sJMP);
-    s <= sJMP when flagsNZ(0) = '1';
+    s <= sJMP when flagsNZ(0) = '1' else sOut;
 end architecture;
 ----------------------HLT--------------------
 library ieee;

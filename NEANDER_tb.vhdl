@@ -17,11 +17,9 @@ architecture letsdothis of tb_neander is
     end component NEANDER;
 
     signal rst : std_logic := '1';
-    signal clk : std_logic := '0';
+    signal clk : std_logic := '1';
 
 begin
-    clk <= not(clk) after cicloClock / 2;
-
     u_neander : neander port map(rst, clk);
 
     process
@@ -30,10 +28,20 @@ begin
         -- reset inicial
         rst <= '0';
         wait for cicloClock;
+        
         rst <= '1';
 
         wait;
 
     end process;
+
+    clock : process 
+
+    begin
+
+        clk <= not(clk);
+        wait for cicloClock/2;
+
+    end process clock;
 
 end architecture letsdothis; 

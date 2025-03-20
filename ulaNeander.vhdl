@@ -54,6 +54,7 @@ begin
     u_registradorFlags: reg2bit port map(s_ula2flags, clk, '1', rst, AC_nrw, s_interface_flags);
     u_ulaInterno: moduloULAinterno port map(s_ac2ula, barramento, ula_op, s_ula2flags, s_ula2ac);
     barramento <= s_ac2ula when MEM_nrw='1' else (others => 'Z');
+    flags_nz <= s_interface_flags;
     
 end architecture domathstuff;
 

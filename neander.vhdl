@@ -71,10 +71,9 @@ begin
     RDM_nrw  <= s_bctrl(9);
     RI_nrw   <= s_bctrl(10);
 
-    u_ula : moduloULA port map(rst, clk, AC_nrw, ula_op, MEM_nrw, flagsNZ, barramento);
-    u_mem : moduloMEM port map(rst, clk, nbarrPC, REM_nrw, MEM_nrw, RDM_nrw, s_endPC, s_endBarr, barramento);
-    u_pc  : moduloPC  port map(rst, clk, PC_nrw, nbarrINC, barramento, s_endPC);
-    u_uc  : moduloUC  port map(rst, clk, barramento, RI_nrw, flagsNZ, s_bctrl);
-    s_endBarr <= barramento;
+    u_ula : moduloULA port map(rst, clk, s_bctrl(6), s_bctrl(4 downto 2), s_bctrl(7), flagsNZ, barramento);
+    u_mem : moduloMEM port map(rst, clk, s_bctrl(1), s_bctrl(8), s_bctrl(7), s_bctrl(9), s_endPC, barramento, barramento);
+    u_pc  : moduloPC  port map(rst, clk, s_bctrl(5), s_bctrl(0), barramento, s_endPC);
+    u_uc  : moduloUC  port map(rst, clk, barramento, s_bctrl(10), flagsNZ, s_bctrl);
   
 end architecture;

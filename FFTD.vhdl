@@ -28,8 +28,8 @@ begin
     s_snr    <= not(cl and s_snnd and s_eloS);
     s_sns2   <= not(s_sns and s_nClock);
     s_snr2   <= not(s_snr and s_nClock);
-    s_eloS   <=    (s_sns);
-    s_eloR   <=    (s_snr);
+    s_eloS   <= not(s_snd and pr and s_eloR);
+    s_eloR   <= not(s_snnd and cl and s_eloS);
     s_eloQ   <= not(pr and s_sns2 and s_elonQ);
     s_elonQ  <= not(cl and s_snr2 and s_eloQ);
 
